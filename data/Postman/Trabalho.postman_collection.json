@@ -1,0 +1,1058 @@
+{
+	"info": {
+		"_postman_id": "0dd29552-913f-4dc2-ac11-48e12db7faca",
+		"name": "Trabalho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14064559"
+	},
+	"item": [
+		{
+			"name": "Rotina",
+			"item": [
+				{
+					"name": "Encontrar Exercicio Específico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/exercicio/6341a7bffd268a5540766f84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"exercicio",
+								"6341a7bffd268a5540766f84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegar por específico",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/637c39f7ca99414684cd9e6e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"637c39f7ca99414684cd9e6e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Rotinas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Exercicio",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"repeticoes\":12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/exercicio/6341a7bffd268a5540766f84/atualizar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"exercicio",
+								"6341a7bffd268a5540766f84",
+								"atualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Exercicio",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"nome\":\"Triceps Corda\",\r\n\"series\":\"4x5x6\",\r\n\"repeticoes\":\"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/6388020583c60625ac7515da/exercicio/adicionar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"6388020583c60625ac7515da",
+								"exercicio",
+								"adicionar"
+							],
+							"query": [
+								{
+									"key": "x-auth-token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Exercicio",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cargaAlcancada\":8,\r\n    \"repeticoesFeitas\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/exercicio/6313bd3d6672fd533031a5a7/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"exercicio",
+								"6313bd3d6672fd533031a5a7",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Rotina",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dia\":\"Quarta\",\r\n    \"exercicios\": [{\r\n        \"nome\": \"Rosca Alternada\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/61a4133fb50a4f41d04ec12e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"61a4133fb50a4f41d04ec12e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Rotina",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dia\":\"terça\",\r\n    \"exercicios\": [\r\n        {\r\n            \"nome\":\"Supino Reto\",\r\n            \"carga\":10,\r\n            \"repeticoes\":10,\r\n            \"series\":3\r\n        },\r\n        {\r\n            \"nome\":\"Supino Inclinado\",\r\n            \"carga\":10,\r\n            \"repeticoes\":10,\r\n            \"series\":3\r\n        },\r\n        {\r\n            \"nome\":\"Voador\",\r\n            \"carga\":10,\r\n            \"repeticoes\":10,\r\n            \"series\":3\r\n        }\r\n    ],\r\n    \"usuario\":\"638801f383c60625ac7515d8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas"
+							],
+							"query": [
+								{
+									"key": "x-auth-token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWE2Yzg4YTgyZDQ5MTJlMDkwZWU0NiIsInJvbGUiOiJhZG0iLCJpYXQiOjE2Mzc1MTc4OTgsImV4cCI6MTYzNzUyMTQ5OH0.jdmkW2hog9hzh6FfaKv3tcr_A2nXwd_IZtDajkaoeyw",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/637c45349519081908a160f4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"637c45349519081908a160f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Exercicio",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/rotinas/exercicio/6313ac6b6672fd533031a59f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"rotinas",
+								"exercicio",
+								"6313ac6b6672fd533031a59f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Adicionar usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"José Silva\",\r\n    \"senha\":\"jose.silva\",\r\n    \"whatsapp\":123454,\r\n    \"role\":\"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegar Usuario Especifico",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/637d5b3d4e4bcd3c28abef70",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"637d5b3d4e4bcd3c28abef70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegar Usuario por Nome",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/query?nome=eyjk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"query"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "eyjk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"ADM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/6313ab086672fd533031a598",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"6313ab086672fd533031a598"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incrementar Rotina",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rotina\":\"6388020583c60625ac7515da\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/incrementar-rotina/63880193bbdc6ab334061860",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"incrementar-rotina",
+								"63880193bbdc6ab334061860"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decrementar rotina",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rotina\":\"637c4d389519081908a16159\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/decrementar-rotina/637a9aa93bdf412fd0a89f50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"decrementar-rotina",
+								"637a9aa93bdf412fd0a89f50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/638800cdbbdc6ab33406185e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"638800cdbbdc6ab33406185e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negativos",
+			"item": [
+				{
+					"name": "Usuarios",
+					"item": [
+						{
+							"name": "Parâmetros Únicos repetidos",
+							"item": [
+								{
+									"name": "Nome",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-auth-token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Usuario Teste1\",\r\n    \"senha\":\"123\",\r\n    \"idade\": 30,\r\n    \"peso\":80,\r\n    \"sexo\": \"String\",\r\n    \"role\":\"adm\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/usuarios/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"usuarios",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Campos Obrigatórios",
+							"item": [
+								{
+									"name": "senha",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-auth-token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWE2Yzg4YTgyZDQ5MTJlMDkwZWU0NiIsInJvbGUiOiJhZG0iLCJpYXQiOjE2Mzc1MjcxNDUsImV4cCI6MTYzNzUzMDc0NX0.z79ee2282B003HniUMmtGDqYy2DlwV-9cby5WE5zZCw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Usuario de Teste 2\",\r\n    \"idade\": 20,\r\n    \"peso\":80,\r\n    \"sexo\": \"String\",\r\n    \"role\":\"adm\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/usuarios/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"usuarios",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "nome Copy",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-auth-token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWE2Yzg4YTgyZDQ5MTJlMDkwZWU0NiIsInJvbGUiOiJhZG0iLCJpYXQiOjE2Mzc1MjcxNDUsImV4cCI6MTYzNzUzMDc0NX0.z79ee2282B003HniUMmtGDqYy2DlwV-9cby5WE5zZCw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idade\": 20,\r\n    \"peso\":80,\r\n    \"sexo\": \"String\",\r\n    \"role\":\"adm\"\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/usuarios/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"usuarios",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Datatypes Trocados",
+							"item": [
+								{
+									"name": "idade -> String",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-auth-token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWE2Yzg4YTgyZDQ5MTJlMDkwZWU0NiIsInJvbGUiOiJhZG0iLCJpYXQiOjE2Mzc1MjcxNDUsImV4cCI6MTYzNzUzMDc0NX0.z79ee2282B003HniUMmtGDqYy2DlwV-9cby5WE5zZCw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Usuario Teste2341\",\r\n    \"idade\": \"ghj\",\r\n    \"peso\":80,\r\n    \"sexo\": \"String\",\r\n    \"role\":\"adm\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/usuarios/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"usuarios",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "peso -> String",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-auth-token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWE2Yzg4YTgyZDQ5MTJlMDkwZWU0NiIsInJvbGUiOiJhZG0iLCJpYXQiOjE2Mzc1MjcxNDUsImV4cCI6MTYzNzUzMDc0NX0.z79ee2282B003HniUMmtGDqYy2DlwV-9cby5WE5zZCw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Usuario Teste24\",\r\n    \"peso\":\"dff\",\r\n    \"sexo\": 5,\r\n    \"role\":\"adm\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/usuarios/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"usuarios",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Sexo -> Number",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-auth-token",
+												"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWE2Yzg4YTgyZDQ5MTJlMDkwZWU0NiIsInJvbGUiOiJhZG0iLCJpYXQiOjE2Mzc1MjcxNDUsImV4cCI6MTYzNzUzMDc0NX0.z79ee2282B003HniUMmtGDqYy2DlwV-9cby5WE5zZCw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nome\": \"Usuario Teste2343243451\",\r\n    \"idade\": 30,\r\n    \"peso\":80,\r\n    \"sexo\": 123.5,\r\n    \"role\":\"adm\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/usuarios/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"usuarios",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Rotina",
+					"item": [
+						{
+							"name": "Campos Obrigatórios",
+							"item": [
+								{
+									"name": "nome",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dia\":\"Terça\",\r\n    \"exercicios\": [{\r\n        \"carga\": 10,\r\n       \"repeticoes\":10\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/rotinas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"rotinas"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "carga",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dia\":\"Terça\",\r\n    \"exercicios\": [{\r\n        \"nome\": 1,\r\n       \"repeticoes\":10\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/rotinas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"rotinas"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Repeticoes",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dia\":\"Terça\",\r\n    \"exercicios\": [{\r\n        \"nome\": 1,\r\n        \"carga\": 10\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/rotinas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"rotinas"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Datatypes Trocados",
+							"item": [
+								{
+									"name": "carga",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dia\":\"Terça\",\r\n    \"exercicios\": [{\r\n        \"nome\": \"teste\",\r\n        \"carga\": \"abv\",\r\n       \"repeticoes\":10\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/rotinas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"rotinas"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "repeticoes",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dia\":\"Terça\",\r\n    \"exercicios\": [{\r\n        \"nome\": 1,\r\n        \"carga\": 10,\r\n       \"repeticoes\":\"asdfsadf\"\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/rotinas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"rotinas"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable('token', data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\":\"Matheus Scheffer\",\r\n    \"senha\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,697 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  - url: http://localhost:3000/api
+    description: Optional server description, e.g. Main (production) server
+tags:
+  - name: Usuario
+  - name: Rotina
+  - name: Exercicio
+  - name: Token
+paths:
+  /token:
+    post:
+      summary: realiza autenticacao
+      tags:
+        - Token
+      requestBody:
+          required: true
+          content:
+              application/json:
+                  schema:
+                      $ref: '#/components/schemas/Token'
+      responses:
+        200:
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+
+  /usuarios:
+    get:
+      summary: retorna todos os usuarios
+      tags:
+        - Usuario
+      parameters:
+        - in: header
+          name: x-auth-token
+          schema:
+            type: string
+
+
+      responses:
+        200:
+          description: Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Usuario' 
+
+  /usuarios/{id}:
+     get:
+       summary: retorna um usuario especifico
+       tags: 
+        - Usuario
+       parameters:
+         - in: path
+           name: id
+           example: 638bbcfd82aa460b582e7894
+           schema:
+               type: string
+           required: true
+           description: id do usuario    
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Usuario'  
+
+  /usuarios/query:
+     get:
+       summary: retorna um usuario especifico
+       tags: 
+        - Usuario
+       parameters:
+         - in: query
+           name: nome
+           schema:
+               type: string
+           required: true
+           description: nome ou fragmento do nome do usuario   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Usuario'  
+
+  /usuarios/:
+     post:
+       summary: retorna um usuario especifico
+       tags: 
+        - Usuario
+       parameters:
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario  
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioSemRotina'
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/UsuarioSemRotina'   
+
+  /usuarios/{id}/:
+     put:
+       summary: retorna um usuario especifico
+       tags: 
+        - Usuario
+       parameters:
+         - in: path
+           name: id
+           schema:
+              type: string
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario  
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioSemRotina'
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/UsuarioSemRotina'  
+
+  /usuarios/incrementar-rotina/{id_usuario}/:
+     put:
+       summary: retorna um usuario especifico
+       tags: 
+        - Usuario
+       parameters:
+         - in: path
+           name: id_usuario
+           schema:
+              type: string
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario  
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncrementarRotinaBody'
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Usuario' 
+
+  /usuarios/decrementar-rotina/{id_usuario}/:
+     put:
+       summary: retorna um usuario especifico
+       tags: 
+        - Usuario
+       parameters:
+         - in: path
+           name: id_usuario
+           schema:
+              type: string
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario  
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncrementarRotinaBody'
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Usuario' 
+
+  /usuarios/{id}//:
+     delete:
+       summary: deleta um usuario especifico
+       description: necessário retirar a ultima barra do endpoint, que foi colocada somente para aparecer no swagger
+       tags: 
+        - Usuario
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id do usuario    
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Usuario'  
+
+  /rotinas:
+    get:
+      summary: retorna todas as rotinas
+      tags:
+        - Rotina
+      parameters:
+        - in: header
+          name: x-auth-token
+          schema:
+            type: string
+      responses:
+        200:
+          description: Usuario
+          content:
+              application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#components/schemas/Rotina'  
+
+  /rotinas/{id}:
+     get:
+       summary: retorna uma rotina especifica
+       tags: 
+        - Rotina
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id da rotina   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Rotina'  
+
+  /rotinas/:
+     post:
+       summary: Adiciona uma rotina
+       tags: 
+        - Rotina
+       parameters:
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario  
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RotinaSemId'
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/RotinaSemId'   
+
+  /rotinas/{id}/:
+     put:
+       summary: atualiza uma rotina especifica
+       tags: 
+        - Rotina
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id da rotina   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RotinaSemExercicioEId'
+
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Rotina'  
+
+
+
+  /rotinas/{id}//:
+     delete:
+       summary: deleta uma rotina especifica
+       tags: 
+        - Rotina
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id da rotina   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Rotina
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Rotina' 
+
+  /rotinas/exercicio/{id}:
+     get:
+       summary: retorna um exercicio especifica
+       tags: 
+        - Exercicio
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id do exercicio   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Exercicio'  
+
+  /rotinas/{id}/exercicio/adicionar:
+     put:
+       summary: Adiciona um exercicio a uma rotina existente
+       tags: 
+        - Exercicio
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id da rotina   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExercicioParaRotina'
+
+  /rotinas/exercicio/{id}/registrar:
+     put:
+       summary: Registra os dados do exercicio
+       tags: 
+        - Exercicio
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id do exercicio   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       requestBody:
+        type: object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistroTreino'
+       responses:
+         200:
+           description: Registro de treino
+           content:
+               application/json:
+                   schema:
+                     $ref: '#components/schemas/RegistroTreino'           
+      
+  /rotinas/exercicio/{id}/atualizar:
+     put:
+       summary: Atualiza os dados do exercicio
+       tags: 
+        - Exercicio
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id do exercicio   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       requestBody:
+        type: object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExercicioParaRotina'
+       responses:
+         200:
+           description: Registro de treino
+           content:
+               application/json:
+                   schema:
+                     $ref: '#components/schemas/ExercicioParaRotina'  
+
+  /rotinas/exercicio/{id}/:
+     delete:
+       summary: deleta um exercicio especifica
+       tags: 
+        - Exercicio
+       parameters:
+         - in: path
+           name: id
+           schema:
+               type: string
+           required: true
+           description: id do exercicio   
+         - in: header
+           name: x-auth-token
+           schema:
+               type: string
+           required: true
+           description: token do usuario                       
+       responses:
+           200:
+               description: Usuario
+               content:
+                   application/json:
+                       schema:
+                          $ref: '#components/schemas/Exercicio'  
+
+
+components:
+  schemas:
+    Usuario:
+        type: object
+        required:
+            - _id
+        properties:
+            _id:
+                type: string
+                description: id do usuario
+            nome:
+                type: string
+                description: nome do usuario
+            senha:
+                type: string
+                description: senha do usuario
+            whatsapp:
+                type: string
+                description: whatsapp do usuario
+            idade:
+                type: number
+                description: idade do usuario
+            peso:
+                type: number
+                description: peso do usuario
+            sexo:
+                type: string
+                description: sexo do usuario 
+            objetivo:
+                type: string
+                description: idade do usuario                  
+            rotina:
+                type: object
+                description: rotina do usuario 
+                $ref: '#components/schemas/Rotina'
+
+    UsuarioSemRotina:
+        type: object
+        properties:
+            nome:
+                type: string
+                description: nome do usuario
+            senha:
+                type: string
+                description: senha do usuario
+            whatsapp:
+                type: string
+                description: whatsapp do usuario
+            idade:
+                type: number
+                description: idade do usuario
+            peso:
+                type: number
+                description: peso do usuario
+            sexo:
+                type: string
+                description: sexo do usuario 
+            objetivo:
+                type: string
+                description: objetivo do usuario   
+            role:
+              type: string
+              description: perfil do usuario
+
+    IncrementarRotinaBody:
+      type: object
+      properties:
+        rotina:
+          type: string
+          description: id da rotina a ser adicionada
+
+    Rotina:
+      type: object
+      properties:
+        _id:
+          type: string
+        usuario: 
+          type: string
+          description: id do usuario
+        dia:
+          type: string
+          description: dia da rotina
+        exercicios: 
+          type: array
+          description: array de exercicios
+          items: 
+            $ref: '#components/schemas/Exercicio'
+
+    RotinaSemId:
+      type: object
+      properties:
+        usuario: 
+          type: string
+          description: id do usuario
+        dia:
+          type: string
+          description: dia da rotina
+        exercicios: 
+          type: array
+          description: array de exercicios
+          items: 
+            $ref: '#components/schemas/ExercicioParaRotina'
+
+    RotinaSemExercicioEId:
+      type: object
+      properties:
+        dia:
+          type: string
+          description: dia da rotina
+        
+    Exercicio:
+      type: object
+      properties:
+        _id: 
+          type: string
+          description: id do exercicio
+        carga:
+          type: string
+          description: carga do exercicio
+        cargaAlcancada:
+          type: integer
+          description: carga alcançada do exercicio
+        repeticoesFeitas:
+          type: string
+          description: repetições feitas registradas pelo usuário
+        nome:
+          type: string
+          description: nome do exercicio
+        series: 
+          type: string
+          description: serie do exercicio registradas pelo instrutor
+        repeticoes:
+          type: string
+          description: repetições registradas pelo instrutor
+
+    ExercicioParaRotina:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: nome do exercicio
+        series: 
+          type: string
+          description: serie do exercicio registradas pelo instrutor
+        repeticoes:
+          type: string
+          description: repetições registradas pelo instrutor
+
+    RegistroTreino:
+      type: object
+      properties:
+        cargaAlcancada:
+          type: integer
+          description: carga alcançada do exercicio
+        repeticoesFeitas:
+          type: string
+          description: repetições feitas registradas pelo usuário
+
+    Token:
+      type: object
+      properties:
+        usuario:
+          type: string
+          example: Matheus Scheffer
+        senha:
+          type: string
+
+    TokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: resultado do token com 189 caracteres
+          example: ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+        expires_in:
+          type: string
+          description: 
+          example: 1h
